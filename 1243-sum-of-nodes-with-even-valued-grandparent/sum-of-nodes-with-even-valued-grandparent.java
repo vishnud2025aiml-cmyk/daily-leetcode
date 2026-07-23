@@ -16,19 +16,34 @@
 class Solution {
     private int sum=0;
     public int sumEvenGrandparent(TreeNode root) {        
-        dfs(root,null,null);
+        dfs(root);
         return sum;
     }
 
-    public void dfs(TreeNode root,TreeNode parent,TreeNode grand){
+    public void dfs(TreeNode root){
         if(root==null) return ;
 
-        if(grand!=null && grand.val%2==0){
-            sum+=root.val;
+        if(root.val%2==0){
+            if(root.left!=null){
+                if(root.left.left!=null){
+                    sum+=root.left.left.val;
+                }
+                if(root.left.right!=null){
+                    sum+=root.left.right.val;
+                }
+            }
+            if(root.right!=null){
+                if(root.right.left!=null){
+                    sum+=root.right.left.val;
+                }
+                if(root.right.right!=null){
+                    sum+=root.right.right.val;
+                }
+            }
+            
         }
-        
-        dfs(root.left,root,parent);
-        dfs(root.right,root,parent);
+        dfs(root.left);
+        dfs(root.right);
 
     }
 
