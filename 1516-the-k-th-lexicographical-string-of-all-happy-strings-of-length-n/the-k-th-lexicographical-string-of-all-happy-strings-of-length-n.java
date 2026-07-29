@@ -1,20 +1,21 @@
 class Solution {
+    private int l=0;
+    private String res="";
     public String getHappyString(int n, int k) {
         char[] s={'a','b','c'};
         StringBuilder words=new StringBuilder();
-        List<String> res=new ArrayList<>();
-        backtrack(n,s,words,res);
-        Collections.sort(res);
-        if(res.size()<k){
-            return "";
-        }
-        return res.get(k-1);
+        backtrack(k,n,s,words);
+        return res;
 
     }
 
-    public void backtrack(int n,char[] s,StringBuilder words,List<String> res){
+    public void backtrack(int k,int n,char[] s,StringBuilder words){
         if(words.length()==n){
-            res.add(words.toString());
+            l++;
+            if(l==k){
+                res=words.toString();
+            }
+            // System.out.println(words.toString());
             return ;
         }
 
@@ -25,7 +26,7 @@ class Solution {
                 continue;
             }
             words.append(ch);
-            backtrack(n,s,words,res);
+            backtrack(k,n,s,words);
             words.deleteCharAt(words.length()-1);
         }
 
