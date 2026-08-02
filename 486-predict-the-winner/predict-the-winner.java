@@ -14,7 +14,7 @@ class Solution {
             return nums[i];
         }
         String key=i+","+j;
-        if(dp.containsKey(key)){
+        if(dp.get(key)!=null){
             return dp.get(key);
         }
         int left=nums[i]-predict(nums,i+1,j,dp);
