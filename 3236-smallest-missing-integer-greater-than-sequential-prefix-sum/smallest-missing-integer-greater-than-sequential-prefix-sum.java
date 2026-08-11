@@ -1,9 +1,9 @@
 class Solution {
     public int missingInteger(int[] nums) {
-        Map<Integer,Integer> mp=new HashMap<>();
+        boolean[] exist=new boolean[51];
 
         for(int x:nums){
-            mp.put(x,0);
+            exist[x]=true;
         }
 
         int sum=nums[0];
@@ -17,7 +17,10 @@ class Solution {
                 break;
             }
         }
-        while(mp.get(sum)!=null){
+        while(sum<51 && exist[sum]==true){
+            // if(sum>=51){
+            //     return nums[nums.length-1];
+            // }
             sum+=1;
         }
         return sum;
