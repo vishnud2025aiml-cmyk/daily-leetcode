@@ -39,7 +39,7 @@ class Solution {
         int[] res={-1,-1};
 
         if(ans.size()<=1){
-            return res;
+            return new int[]{-1,-1};
         }
 
         int min=Integer.MAX_VALUE;
@@ -47,10 +47,8 @@ class Solution {
             min=Math.min(min,ans.get(i)-ans.get(i-1));
         }
         int max=ans.get(ans.size()-1)-ans.get(0);
-        res[0]=min;
-        res[1]=max;
 
-        return res;
+        return new int[]{min,max};
 
     }
 }
