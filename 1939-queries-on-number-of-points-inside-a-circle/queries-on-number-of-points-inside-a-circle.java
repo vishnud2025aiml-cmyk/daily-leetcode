@@ -11,6 +11,7 @@ class Solution {
             for(int[] point:points){
                 int x2=point[0];
                 int y2=point[1];
+                // (x2-x1)^2 + (y2-y1)^2 <=r*r  formula
                 if((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)<=r*r){
                     count++;
                 }
