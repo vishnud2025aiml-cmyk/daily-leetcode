@@ -20,6 +20,5 @@ class Solution {
 
         return count+stack.size();
 
-
     }
 }
