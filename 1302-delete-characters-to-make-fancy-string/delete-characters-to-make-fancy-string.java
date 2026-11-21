@@ -1,14 +1,16 @@
 class Solution {
     public String makeFancyString(String s) {
-        StringBuilder str=new StringBuilder(s);
-        for(int i=0;i<str.length()-2;){
-            if(str.charAt(i)==str.charAt(i+1) && str.charAt(i)==str.charAt(i+2)){
-                str.deleteCharAt(i);   
+        if(s.length()<3){
+            return s;
+        }
+        StringBuilder str=new StringBuilder();
+        for(int i=0;i<s.length()-2;i++){
+            if(s.charAt(i)!=s.charAt(i+1) || s.charAt(i)!=s.charAt(i+2)){
+                str.append(s.charAt(i));  
             }
-            else{
-                i++;
-            }
-        }  
+        }
+        str.append(s.charAt(s.length()-2));
+        str.append(s.charAt(s.length()-1));
         return str.toString();
     }
 }
